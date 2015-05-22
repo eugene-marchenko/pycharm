@@ -20,7 +20,6 @@ class FileOperations:
         for i in range(number):
             prefix = str(timestamp) + '_' + str(i)
             filename = self.WORK_DIR + prefix + '.txt'
-            print filename
             if not os.path.exists(os.path.dirname(filename)):
                 os.makedirs(os.path.dirname(filename))
             with open(filename, 'w') as f:

@@ -17,7 +17,7 @@ class FileOperations:
             os.makedirs(os.path.dirname(self.WORK_DIR))
         from time import gmtime, strftime
         timestamp = strftime('%Y%m%d_%H%M%S', gmtime())
-        for i in range(number):
+        for i in xrange(number):
             prefix = str(timestamp) + '_' + str(i)
             filename = self.WORK_DIR + prefix + '.txt'
             if not os.path.exists(os.path.dirname(filename)):

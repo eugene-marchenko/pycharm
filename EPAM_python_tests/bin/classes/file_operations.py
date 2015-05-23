@@ -1,7 +1,7 @@
 import os
 import stat
 
-class FileOperations:
+class FileOperations(object):
     def __init__(self):
         self.WORK_DIR = '/mnt/nfs/test_files/'
         self.DEFAULT_PERMISSIONS_SET = stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH
@@ -24,4 +24,5 @@ class FileOperations:
                 os.makedirs(os.path.dirname(filename))
             with open(filename, 'w') as f:
                 f.write(prefix + '\n')
+                f.close()
             os.chmod(filename, self.DEFAULT_PERMISSIONS_SET)

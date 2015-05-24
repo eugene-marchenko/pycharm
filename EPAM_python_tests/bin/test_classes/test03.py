@@ -10,4 +10,4 @@ class Test03(object):
         FSOperations().create_files(2)
         WORK_DIR = '/mnt/nfs/test_files/'
         filelist = [f for f in os.listdir(WORK_DIR) if f.endswith('.txt')]
-        assert len(filelist) == 2
+        assert len(filelist) == 2, 'Should be equal to 2'

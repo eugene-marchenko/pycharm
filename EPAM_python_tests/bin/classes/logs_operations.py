@@ -1,6 +1,5 @@
 import os
 import pytest
-import logging
 from time import gmtime, strftime
 
 class LogsOperations(object):

@@ -8,4 +8,4 @@ class Test02(object):
         logging.info('Testing inode increase')
         inodes_left = os.statvfs('/mnt/nfs').f_favail
         FSOperations().delete_files()
-        assert os.statvfs('/mnt/nfs').f_favail >= inodes_left
+        assert os.statvfs('/mnt/nfs').f_favail >= inodes_left, 'Should be bigger number of inodes'

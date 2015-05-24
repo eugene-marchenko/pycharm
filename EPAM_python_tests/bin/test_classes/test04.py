@@ -11,4 +11,4 @@ class Test04(object):
         logging.info('Testing inode decrease')
         inodes_left = os.statvfs('/mnt/nfs').f_favail
         FSOperations().create_files(20)
-        assert os.statvfs('/mnt/nfs').f_favail <= inodes_left, 'Should be less number of inodes'
+        assert os.statvfs('/mnt/nfs').f_favail < inodes_left, 'Should be less number of inodes'

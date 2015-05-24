@@ -3,8 +3,10 @@ import os
 from ..classes.fs_operations import FSOperations
 
 class Test03(object):
-
     def test_number_of_created_files(self):
+        '''
+        This method checks number of created files
+        '''
         logging.info('Testing number of created files')
         FSOperations().delete_files()
         FSOperations().create_files(2)

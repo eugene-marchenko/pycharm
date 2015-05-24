@@ -39,8 +39,13 @@ class FSOperations(object):
             permissions = oct(stat.S_IMODE(os.lstat(f).st_mode))
             dict_perms[f] = permissions
         Output().print_result(dict_perms)
+        return permissions
 
     def change_file_permissions(self, permissions):
         os.chdir(self.WORK_DIR)
         for f in self.filelist:
             os.chmod(f, permissions)
+        return oct(permissions)
+
+    def print_files(self):
+        Output().print_result(self.filelist)

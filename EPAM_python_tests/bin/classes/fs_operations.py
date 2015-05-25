@@ -11,6 +11,8 @@ class FSOperations(object):
         self.WORK_DIR = '/mnt/nfs/test_files/'
         self.EXTENSION = '.txt'
         self.DEFAULT_PERMISSIONS_SET = stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH
+        if not os.path.exists(os.path.dirname(self.WORK_DIR)):
+            os.makedirs(os.path.dirname(self.WORK_DIR))
         self.filelist = [f for f in os.listdir(self.WORK_DIR) if f.endswith(self.EXTENSION)]
         self.timestamp = strftime('%Y_%m_%d', gmtime())
 
@@ -20,10 +22,11 @@ class FSOperations(object):
         This method delete all files from our test directory
         :return:
         """
-        filelist_delete = self.filelist
-        os.chdir(self.WORK_DIR)
-        for f in filelist_delete:
-            os.remove(f)
+        if os.path.isdir(self.WORK_DIR):
+            filelist_delete = self.filelist
+            os.chdir(self.WORK_DIR)
+            for f in filelist_delete:
+                os.remove(f)
 
     def create_files(self, number):
         """
@@ -33,8 +36,6 @@ class FSOperations(object):
         :param number:
         :return:
         """
-        if not os.path.exists(os.path.dirname(self.WORK_DIR)):
-            os.makedirs(os.path.dirname(self.WORK_DIR))
         for i in xrange(number):
             prefix = str(self.timestamp) + '_' + str(i)
             filename = self.WORK_DIR + prefix + self.EXTENSION

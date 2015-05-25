@@ -1,4 +1,4 @@
-from classes.logs_operations import LogsOperations
+from .classes.logs_operations import LogsOperations
 
 '''
 Run tests

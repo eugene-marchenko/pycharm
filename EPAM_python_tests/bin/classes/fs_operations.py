@@ -1,6 +1,6 @@
 import os
 import stat
-from output import Output
+from .output import Output
 from time import gmtime, strftime
 
 class FSOperations(object):
@@ -35,7 +35,7 @@ class FSOperations(object):
         """
         if not os.path.exists(os.path.dirname(self.WORK_DIR)):
             os.makedirs(os.path.dirname(self.WORK_DIR))
-        for i in xrange(number):
+        for i in range(number):
             prefix = str(self.timestamp) + '_' + str(i)
             filename = self.WORK_DIR + prefix + self.EXTENSION
             if not os.path.exists(os.path.dirname(filename)):

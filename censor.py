@@ -37,4 +37,5 @@ def censor(text, word):
     if word in text:
         return text.replace(word, "*" * len(word))
 
-print censor('hey hey hey','hey')
+
+print(censor('hey hey hey', 'hey'))
